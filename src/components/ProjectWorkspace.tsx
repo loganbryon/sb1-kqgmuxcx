@@ -16,6 +16,7 @@ import CauseEffectMatrix from './CauseEffectMatrix';
 import ModbusRegisterMapComponent from './ModbusRegisterMap';
 import ModbusMasterTableComponent from './ModbusMasterTable';
 import CommPortSettingsComponent from './CommPortSettings';
+import NetworkTopology from './NetworkTopology';
 import {
   exportToExcel,
   generateControlTheory,
@@ -27,7 +28,7 @@ type ProjectWorkspaceProps = {
   onBack: () => void;
 };
 
-type Tab = 'io' | 'matrix' | 'modbus' | 'master' | 'comm' | 'hmi' | 'theory' | 'ladder';
+type Tab = 'io' | 'matrix' | 'modbus' | 'master' | 'comm' | 'network' | 'hmi' | 'theory' | 'ladder';
 
 export default function ProjectWorkspace({
   project,
@@ -225,6 +226,17 @@ export default function ProjectWorkspace({
                 Comm Settings
               </button>
               <button
+                onClick={() => setActiveTab('network')}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 ${
+                  activeTab === 'network'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-slate-600 hover:bg-slate-100'
+                }`}
+              >
+                <Network size={18} />
+                Network
+              </button>
+              <button
                 onClick={() => setActiveTab('hmi')}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2 ${
                   activeTab === 'hmi'
@@ -300,6 +312,9 @@ export default function ProjectWorkspace({
                 commSettings={commSettings}
                 onUpdate={loadData}
               />
+            )}
+            {activeTab === 'network' && (
+              <NetworkTopology projectId={project.id} />
             )}
             {activeTab === 'hmi' && (
               <div>
