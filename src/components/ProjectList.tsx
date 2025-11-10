@@ -79,7 +79,7 @@ export default function ProjectList({ onSelectProject }: ProjectListProps) {
         <div>
           <h1 className="text-3xl font-bold text-slate-900">My Projects</h1>
           <p className="text-slate-600 mt-1">
-            Manage your automation control projects
+            Optimize your automation control projects
           </p>
         </div>
         <button
