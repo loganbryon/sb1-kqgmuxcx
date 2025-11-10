@@ -44,7 +44,7 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-md p-8">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
-            PLC Automation Suite
+            PLC AutoSweet
           </h1>
           <p className="text-slate-600">
             Industrial Control System Design Tool
